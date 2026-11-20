@@ -82,7 +82,7 @@ h2.section-title{font-size:clamp(2rem,4vw,3rem);letter-spacing:-.045em;line-heig
 .project-art{height:190px;position:relative;overflow:hidden;background:#203941}
 .project-art svg{width:100%;height:100%;display:block}
 .project-body{padding:24px;display:flex;flex-direction:column;flex:1}
-.project-type{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:800}.project:first-child .project-type{display:flex;align-items:center;gap:9px}.project:first-child .project-type:after{content:"EM ANDAMENTO";font-size:.61rem;letter-spacing:.08em;color:#10231f;background:var(--accent2);padding:4px 8px;border-radius:999px}
+.project-type{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:800}.project-in-progress .project-type{display:flex;align-items:center;gap:9px}.project-in-progress .project-type:after{content:"EM ANDAMENTO";font-size:.61rem;letter-spacing:.08em;color:#10231f;background:var(--accent2);padding:4px 8px;border-radius:999px}
 .project h3{font-size:1.35rem;line-height:1.2;letter-spacing:-.025em;margin:10px 0 18px}
 .project dl{margin:0;display:grid;gap:14px}
 .project dt{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:#8eaaa5;font-weight:800;margin-bottom:3px}
@@ -265,7 +265,7 @@ footer{border-top:1px solid var(--line);padding:22px 0;color:#829995;font-size:.
     </div>
    </article>
 
-    <article class="project">
+    <article class="project project-in-progress">
      <div class="project-art">
       <svg viewBox="0 0 500 220" role="img" aria-label="Arquitetura de sistema, dados e controles de risco do RoboTA">
        <defs><linearGradient id="robota-bg" x1="0" x2="1"><stop stop-color="#254e50"/><stop offset="1" stop-color="#172d38"/></linearGradient></defs>
