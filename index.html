@@ -82,6 +82,21 @@ h2.section-title{font-size:clamp(2rem,4vw,3rem);letter-spacing:-.045em;line-heig
 .project-art{height:190px;position:relative;overflow:hidden;background:#203941}
 .project-art svg{width:100%;height:100%;display:block}
 .project-body{padding:24px;display:flex;flex-direction:column;flex:1}
+/* Cards de projetos expansíveis */
+.project-details{height:100%}
+.project-details>summary{list-style:none;cursor:pointer;position:relative;padding:0 30px 0 0;outline:none}
+.project-details>summary::-webkit-details-marker{display:none}
+.project-details>summary:focus-visible{outline:2px solid var(--accent);outline-offset:6px;border-radius:8px}
+.project-details>summary h3{margin-bottom:18px}
+.project-details>summary:after{content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);width:30px;height:30px;display:grid;place-items:center;border:1px solid rgba(119,214,189,.45);border-radius:50%;color:var(--accent);font-size:1.25rem;font-weight:500;transition:transform .2s ease,background .2s ease}
+.project-details[open]>summary:after{content:"−";background:rgba(119,214,189,.1)}
+.project-toggle{display:inline-flex;align-items:center;gap:6px;margin-top:2px;color:var(--accent);font-size:.76rem;font-weight:750;letter-spacing:.04em}
+.project-toggle .when-open{display:none}
+.project-details[open] .project-toggle .when-closed{display:none}
+.project-details[open] .project-toggle .when-open{display:inline}
+.project-details>dl{margin-top:20px}
+@media(prefers-reduced-motion:no-preference){.project-details>dl{animation:project-reveal .22s ease both}@keyframes project-reveal{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}}
+
 .project-type{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:800}.project-in-progress .project-type{display:flex;align-items:center;gap:9px}.project-in-progress .project-type:after{content:"EM ANDAMENTO";font-size:.61rem;letter-spacing:.08em;color:#10231f;background:var(--accent2);padding:4px 8px;border-radius:999px}
 .project h3{font-size:1.35rem;line-height:1.2;letter-spacing:-.025em;margin:10px 0 18px}
 .project dl{margin:0;display:grid;gap:14px}
@@ -217,7 +232,7 @@ footer{border-top:1px solid var(--line);padding:22px 0;color:#829995;font-size:.
   <div class="projects">
 
 
-   <article class="project">
+   <article class="project">    
     <div class="project-art">
      <svg viewBox="0 0 500 220" role="img" aria-label="Representação da evolução do planejamento manual da produção para um sistema integrado">
       <defs><linearGradient id="g6" x1="0" x2="1"><stop stop-color="#254e50"/><stop offset="1" stop-color="#172d38"/></linearGradient></defs>
@@ -240,33 +255,45 @@ footer{border-top:1px solid var(--line);padding:22px 0;color:#829995;font-size:.
       </g>
      </svg>
     </div>
-    <div class="project-body">
-     <div class="project-type">Projeto real · 2002 – 2004</div>
-     <h3>Metalúrgica Ipê · Sistema de Planejamento e Controle da Produção (PPCP)</h3>
+    <div class="project-body"><details class="project-details">
+     <summary>
+      <div class="project-type">Projeto real · 2002 – 2004</div>
+      <h3>Metalúrgica Ipê · Sistema de Planejamento e Controle da Produção (PPCP)</h3>
+      <span class="project-toggle"><span class="when-closed">Ver detalhes</span><span class="when-open">Recolher detalhes</span></span>
+     </summary>
+     
+     
      <dl>
       <div><dt>Desafio</dt><dd>A programação da produção dependia de um quadro físico e de plaquetas preenchidas manualmente para organizar produtos e seus diversos níveis de componentes. O processo levava muitos dias para ser concluído e dificultava a resposta a mudanças, comprometendo o cumprimento dos prazos.</dd></div>
       <div><dt>O que foi feito</dt><dd>Desenvolvi uma solução especialista em Delphi, passando por ciclos de prototipação e aprimoramento até reformular completamente a solução em 2004. Em cerca de três meses, chegamos a um sistema que atendeu plenamente aos objetivos de eficiência do processo.</dd></div>
       <div class="outcome"><dt>Resultado / contribuição</dt><dd><strong>Ampliação do horizonte de planejamento de duas semanas para meses e redução do tempo de resposta à mudanças de dias para horas.</strong></dd></div>
      </dl>
+     </details>
     </div>
    </article>
 
-   <article class="project">
+   <article class="project">    
     <div class="project-art">
      <svg viewBox="0 0 500 220" role="img" aria-label="Visual abstrato de indicadores e diagnóstico"><defs><linearGradient id="g1" x1="0" x2="1"><stop stop-color="#254e50"/><stop offset="1" stop-color="#172d38"/></linearGradient></defs><rect width="500" height="220" fill="url(#g1)"/><g stroke="#7bd9bd" opacity=".18"><path d="M40 180H460M40 130H460M40 80H460M40 30H460"/></g><g fill="#77d6bd"><rect x="72" y="120" width="42" height="60" rx="5" opacity=".45"/><rect x="138" y="88" width="42" height="92" rx="5" opacity=".65"/><rect x="204" y="104" width="42" height="76" rx="5" opacity=".8"/><rect x="270" y="55" width="42" height="125" rx="5"/><rect x="336" y="76" width="42" height="104" rx="5" opacity=".7"/></g><path d="M62 103C120 80 145 115 202 73S300 95 370 39S425 50 452 25" fill="none" stroke="#d1e8a9" stroke-width="3" stroke-linecap="round"/><circle cx="452" cy="25" r="6" fill="#d1e8a9"/></svg>
     </div>
-    <div class="project-body">
-     <div class="project-type">Consultoria · 2026 – atual</div><h3>Método E7 | Crescimento Estratégico</h3>
+    <div class="project-body"><details class="project-details">
+     <summary>
+      <div class="project-type">Consultoria · 2026 – atual</div>
+      <h3>Método E7 | Crescimento Estratégico</h3>
+      <span class="project-toggle"><span class="when-closed">Ver detalhes</span><span class="when-open">Recolher detalhes</span></span>
+     </summary>
+     
      <dl>
       <div><dt>Problema</dt><dd>Pequenos negócios frequentemente enfrentam dificuldades para compreender, de forma integrada, seu desempenho financeiro e operacional. Perdas pouco perceptíveis, custos, margens, ponto de equilíbrio e variações nos resultados podem comprometer a rentabilidade e dificultar a identificação de prioridades e oportunidades de melhoria.</dd></div>
       <div><dt>O que foi feito</dt><dd>Desenvolvimento de uma metodologia de diagnóstico e análise de negócios, integrando indicadores financeiros e operacionais, análises históricas e comparativas, projeções e simulações de cenários para avaliar o desempenho e apoiar decisões.</dd></div>
       <div class="outcome"><dt>Resultado / contribuição</dt><dd>Visão estruturada do negócio, com identificação de pontos de atenção, oportunidades e fatores que influenciam os resultados. Transformação de dados em análises compreensíveis, apoiando decisões mais fundamentadas, planejamento e crescimento sustentável.</dd></div>
      </dl>
+     </details>
     </div>
    </article>
 
-    <article class="project project-in-progress">
-     <div class="project-art">
+    <article class="project project-in-progress">    
+      <div class="project-art">
       <svg viewBox="0 0 500 220" role="img" aria-label="Arquitetura de sistema, dados e controles de risco do RoboTA">
        <defs><linearGradient id="robota-bg" x1="0" x2="1"><stop stop-color="#254e50"/><stop offset="1" stop-color="#172d38"/></linearGradient></defs>
        <rect width="500" height="220" fill="url(#robota-bg)"/>
@@ -290,19 +317,25 @@ footer{border-top:1px solid var(--line);padding:22px 0;color:#829995;font-size:.
        <g fill="#77d6bd"><circle cx="170" cy="73" r="3"/><circle cx="330" cy="73" r="3"/></g>
       </svg>
      </div>
-     <div class="project-body">
+     <div class="project-body"><details class="project-details">
+     <summary>
       <div class="project-type">Projeto real · 2026 – em andamento</div>
       <h3>RoboTA · Plataforma de Pesquisa e Automação de Estratégias</h3>
+      <span class="project-toggle"><span class="when-closed">Ver detalhes</span><span class="when-open">Recolher detalhes</span></span>
+     </summary>
+      
+      
       <dl>
        <div><dt>Desafio e desenvolvimento</dt><dd>Desenvolver uma plataforma de negociação sistemática que integre pesquisa quantitativa, qualidade e rastreabilidade de dados, gestão de riscos e execução automatizada. A solução tem como núcleo o MetaTrader 5 e a linguagem MQL5, abrangendo Expert Advisors, controles de risco, persistência de estado, pesquisa de estratégias e mecanismos de supervisão.</dd></div>
        <div><dt>Método e gestão</dt><dd>Desenvolvimento incremental, com arquitetura modular, decisões documentadas, versionamento no Git, auditorias de código e testes reproduzíveis. A evolução é orientada por evidências, critérios de aceitação e validação contínua, distinguindo resultados exploratórios de funcionalidades efetivamente comprovadas.</dd></div>
        <div><dt>Resultado / contribuição</dt><dd>Integração de engenharia de software, pesquisa quantitativa e gestão de riscos, com aplicação de IA como apoio à análise, arquitetura, desenvolvimento e auditoria, ficando sob minha responsabilidade as decisões e aprovações ao longo de todo o projeto.</dd></div>
       </dl>
+     </details>
      </div>
     </article>
 
-   <article class="project">
-    <div class="project-art">
+   <article class="project">   
+   <div class="project-art">
      <svg viewBox="0 0 500 220" role="img" aria-label="Visual abstrato de interação entre pessoas e inteligência artificial">
       <defs><linearGradient id="g4" x1="0" x2="1"><stop stop-color="#244a4b"/><stop offset="1" stop-color="#1a303b"/></linearGradient></defs>
       <rect width="500" height="220" fill="url(#g4)"/>
@@ -315,47 +348,67 @@ footer{border-top:1px solid var(--line);padding:22px 0;color:#829995;font-size:.
       <g fill="#77d6bd"><circle cx="318" cy="84" r="5"/><circle cx="345" cy="84" r="5"/><circle cx="372" cy="84" r="5"/></g>
       <text x="250" y="190" fill="#9ab9b0" font-size="12" text-anchor="middle" letter-spacing="3">TECNOLOGIA COM FOCO HUMANO</text>
      </svg>
-    </div>
-    <div class="project-body">
-     <div class="project-type">Projeto estratégico · 2025</div><h3>IA Humanizada – A Voz que Inspira o Recomeço</h3>
+    </div> 
+    <div class="project-body"><details class="project-details">
+     <summary>
+      <div class="project-type">Projeto estratégico · 2025</div>
+      <h3>IA Humanizada – A Voz que Inspira o Recomeço</h3>
+      <span class="project-toggle"><span class="when-closed">Ver detalhes</span><span class="when-open">Recolher detalhes</span></span>
+     </summary>
+     
      <dl>
       <div><dt>Proposta</dt><dd>Como conceber uma interação com IA capaz de apoiar, de forma respeitosa e contextualizada, pessoas em situações de vulnerabilidade?</dd></div>
       <div><dt>O que foi feito</dt><dd>Concepção e estruturação de uma solução baseada em Inteligência Artificial com finalidade socioemocional, orientada ao apoio de pessoas em situação de vulnerabilidade.</dd></div>
       <div class="outcome"><dt>Aplicações previstas</dt><dd>Exploração de uma aplicação da IA centrada nas necessidades humanas, considerando o contexto socioemocional da interação.</dd></div>
      </dl>
+     </details>
     </div>
    </article>
 
-   <article class="project">
+   <article class="project">    
+
     <div class="project-art">
      <svg viewBox="0 0 500 220" role="img" aria-label="Visual abstrato de sinais e indicadores fisiológicos"><rect width="500" height="220" fill="#1c3540"/><g stroke="#6bcdb5" opacity=".2"><path d="M0 55H500M0 110H500M0 165H500"/></g><path d="M20 111H90L108 110L126 78L146 146L166 96L184 111H238L256 111L276 65L297 153L318 99L337 111H480" fill="none" stroke="#77d6bd" stroke-width="3" stroke-linejoin="round"/><circle cx="276" cy="65" r="7" fill="#d1e8a9"/><circle cx="297" cy="153" r="7" fill="#d1e8a9"/><g fill="#9ab5ae" font-size="12" font-family="sans-serif"><text x="28" y="34">SINAIS</text><text x="386" y="195">INDICADORES</text></g></svg>
     </div>
-    <div class="project-body">
-     <div class="project-type">Projeto conceitual · jan. – mar. 2024</div><h3>Reconhecimento de Emoções no Futebol através de Sinais Fisiológicos por RF</h3>
+
+    <div class="project-body"><details class="project-details">
+     <summary>
+      <div class="project-type">Projeto conceitual · jan. – mar. 2024</div>
+      <h3>Reconhecimento de Emoções no Futebol através de Sinais Fisiológicos por RF</h3>
+      <span class="project-toggle"><span class="when-closed">Ver detalhes</span><span class="when-open">Recolher detalhes</span></span>
+     </summary>
+     
      <dl>
       <div><dt>Proposta</dt><dd>Estruturar e analisar informações fisiológicas para apoiar a tomada de decisão em ambientes esportivos de alta performance.</dd></div>
       <div><dt>O que foi feito</dt><dd>Organização e interpretação de dados captados em tempo real, com coleta organizada, modelagem de indicadores, consolidação analítica e visualização orientada à decisão.</dd></div>
       <div class="outcome"><dt>Aplicações previstas</dt><dd>Apoio estratégico durante competições, personalização de treinamentos, monitoramento de fatores de pressão e estresse e consolidação de informações para análise técnica.</dd></div>
      </dl>
+     </details>
     </div>
    </article>
 
-   <article class="project">
+   <article class="project">    
+
     <div class="project-art">
      <svg viewBox="0 0 500 220" role="img" aria-label="Visual abstrato de cenários e decisão de investimento"><rect width="500" height="220" fill="#1b3540"/><g fill="none" stroke="#77d6bd" opacity=".35"><path d="M35 42H465M35 178H465M35 42V178M465 42V178"/><path d="M80 150L160 116L235 132L320 78L410 95" stroke-width="3"/><path d="M80 150L160 116L235 132L320 78L410 95" stroke-width="12" opacity=".08"/></g><g fill="#d1e8a9"><circle cx="80" cy="150" r="6"/><circle cx="160" cy="116" r="6"/><circle cx="235" cy="132" r="6"/><circle cx="320" cy="78" r="6"/><circle cx="410" cy="95" r="6"/></g><g fill="#8ca9a4" opacity=".45"><rect x="75" y="30" width="70" height="7" rx="3"/><rect x="75" y="48" width="42" height="5" rx="2"/><rect x="345" y="145" width="90" height="8" rx="4"/><rect x="345" y="161" width="55" height="5" rx="2"/></g></svg>
     </div>
-    <div class="project-body">
-     <div class="project-type">Projeto conceitual · 2021</div><h3>PADI · Plataforma de Apoio à Decisão de Investimento</h3>
+    
+    <div class="project-body"><details class="project-details">
+     <summary>
+      <div class="project-type">Projeto conceitual · 2021</div>
+      <h3>PADI · Plataforma de Apoio à Decisão de Investimento</h3>
+      <span class="project-toggle"><span class="when-closed">Ver detalhes</span><span class="when-open">Recolher detalhes</span></span>
+     </summary>
+     
      <dl>
       <div><dt>Proposta</dt><dd>Investidores iniciantes precisam interpretar informações, métricas e cenários para comparar oportunidades com mais critério.</dd></div>
       <div><dt>O que foi feito</dt><dd>Estruturação de requisitos de informação, indicadores, filtros de seleção de ativos, análise de cenários e protótipos de interface.</dd></div>
       <div class="outcome"><dt>Aplicações previstas</dt><dd>Concepção de uma plataforma e de um fluxo analítico para organizar critérios e apoiar decisões de investimento de forma mais estruturada.</dd></div>
      </dl>
+     </details>
     </div>
 
-
    </article>
-
 
   </div>
  </div>
